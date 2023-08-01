@@ -3,7 +3,7 @@ extends Control
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	$HTTPRequest.request_completed.connect(_on_request_completed)
-	$HTTPRequest.request("<hostname-of-your-server>", null, 2 , '{"pass": "<password_here>"}')
+	$HTTPRequest.request("<hostname-of-your-server>", ["Content-Type: application/json"], HTTPClient.METHOD_POST, JSON.stringify({"pass": "<password_here>"}))
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
